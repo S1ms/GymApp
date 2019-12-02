@@ -1,0 +1,2 @@
+﻿DBCC CHECKIDENT ('[Sali]', RESEED, 0);
+GO

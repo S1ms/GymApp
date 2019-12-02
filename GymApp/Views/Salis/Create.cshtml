@@ -1,0 +1,81 @@
+﻿@model GymApp.Models.Sali
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Sali</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reps" class="control-label"></label>
+                <input asp-for="Reps" class="form-control" />
+                <span asp-validation-for="Reps" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sets" class="control-label"></label>
+                <input asp-for="Sets" class="form-control" />
+                <span asp-validation-for="Sets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" type="text" id="date_time" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    
+ /*   var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+ */     var today1 = new Date();
+        var date = today1.getFullYear()+'-'+(today1.getMonth()+1)+'-'+today1.getDate();
+        var time = today1.getHours() + ":" + today1.getMinutes();
+        var dateTime = date + ' ' + time;
+
+
+
+
+        document.getElementById('date_time').value = dateTime;
+        document.write(dateTime);
+
+        
+
+        document.write(dateTime);
+
+
+   // now = DateTime.Now.ToString("yyyyMMddHHmm");
+   // document.getElementById('Datee').value = now;
+
+   // today = dd + '/' + mm + '/' + yyyy;
+    //yyyy + '-' + mm + '-' dd;
+   // document.getElementById('TDate').value = today;
+    
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
